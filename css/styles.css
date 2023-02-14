@@ -98,6 +98,11 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
+#no-entry-text {
+  text-align: center;
+  margin: 3rem 0;
+}
+
 @media (min-width: 768px) {
   #placeholder {
     max-height: 100%;
