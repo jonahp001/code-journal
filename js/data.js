@@ -12,6 +12,6 @@ window.addEventListener('beforeunload', function (event) {
   this.localStorage.setItem('jsonData', jsonData);
 });
 
-if (localStorage.getItem('jsonData') === JSON.stringify(data)) {
-  data = JSON.parse(JSON.stringify(data));
+if (localStorage.getItem('jsonData')) {
+  data = JSON.parse(localStorage.getItem('jsonData'));
 }
