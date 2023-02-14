@@ -11,13 +11,9 @@ $form.addEventListener('submit', function (event) {
   event.preventDefault();
   var formValueObject = {};
 
-  var titleKey = event.target.elements[0];
-  var photoUrlKey = event.target.elements[1];
-  var notesKey = event.target.elements[2];
-
-  formValueObject.titleKey = titleKey.value;
-  formValueObject.photoUrlKey = photoUrlKey.value;
-  formValueObject.notesKey = notesKey.value;
+  formValueObject.titleKey = event.target.elements[0].value;
+  formValueObject.photoUrlKey = event.target.elements[1].value;
+  formValueObject.notesKey = event.target.elements[2].value;
 
   formValueObject.entryID = data.nextEntryId;
   data.nextEntryId++;
