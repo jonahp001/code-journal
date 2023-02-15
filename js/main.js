@@ -41,6 +41,7 @@ $form.addEventListener('submit', function (event) {
 function renderEntry(entry) {
   var $newLiElement = document.createElement('li');
   $newLiElement.setAttribute('class', 'row');
+  $newLiElement.setAttribute('data-entry-id', entry.entryID);
 
   var $entryPhoto = document.createElement('img');
   $entryPhoto.setAttribute('src', entry.photoUrlKey);
@@ -51,9 +52,17 @@ function renderEntry(entry) {
   $entryTextDiv.setAttribute('class', 'column-half');
   $newLiElement.appendChild($entryTextDiv);
 
+  var $editRowDiv = document.createElement('div');
+  $editRowDiv.setAttribute('class', 'edit-row');
+  $entryTextDiv.appendChild($editRowDiv);
+
   var $entryTitle = document.createElement('h3');
   $entryTitle.textContent = entry.titleKey;
-  $entryTextDiv.appendChild($entryTitle);
+  $editRowDiv.appendChild($entryTitle);
+
+  var $editIcon = document.createElement('i');
+  $editIcon.setAttribute('class', 'fa-solid fa-pen');
+  $editRowDiv.appendChild($editIcon);
 
   var $entryNotes = document.createElement('p');
   $entryNotes.textContent = entry.notesKey;
