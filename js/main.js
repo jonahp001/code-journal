@@ -1,5 +1,7 @@
 var $userPhotoUrl = document.querySelector('#photo-url');
 var $placeHolderImg = document.querySelector('#placeholder');
+var $form = document.querySelector('form');
+var $ulElement = document.querySelector('ul');
 
 $userPhotoUrl.addEventListener('input', function (event) {
   $placeHolderImg.setAttribute('src', event.target.value);
@@ -7,8 +9,6 @@ $userPhotoUrl.addEventListener('input', function (event) {
     $placeHolderImg.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
 });
-
-var $form = document.querySelector('form');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -28,7 +28,6 @@ $form.addEventListener('submit', function (event) {
   event.target.reset();
 
   var $newDomTreeEntry = renderEntry(formValueObject);
-  var $ulElement = document.querySelector('ul');
   $ulElement.prepend($newDomTreeEntry);
 
   viewSwap('entries');
@@ -73,7 +72,6 @@ function renderEntry(entry) {
 
 document.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
-    var $ulElement = document.querySelector('ul');
     $ulElement.appendChild(renderEntry(data.entries[i]));
   }
   viewSwap(data['data.view']);
@@ -117,5 +115,28 @@ var $newEntryAnchor = document.querySelector('#new-entry-link');
 $newEntryAnchor.addEventListener('click', function (event) {
   if (event.target.getAttribute('href')) {
     viewSwap('entry-form');
+  }
+});
+
+$ulElement.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryID === parseInt(event.target.closest('li').getAttribute('data-entry-id'))) {
+        data.editing = data.entries[i];
+
+        $placeHolderImg.setAttribute('src', data.editing.photoUrlKey);
+        $userPhotoUrl.value = data.editing.photoUrlKey;
+
+        var $titleBox = document.querySelector('#title-box');
+        $titleBox.value = data.editing.titleKey;
+
+        var $notesBox = document.querySelector('#notes-box');
+        $notesBox.value = data.editing.notesKey;
+
+        var $editH2 = document.querySelector('h2');
+        $editH2.value = 'Edit Entry';
+      }
+    }
   }
 });
