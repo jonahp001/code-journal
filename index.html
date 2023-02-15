@@ -21,8 +21,9 @@
 <body>
   <header>
     <div class="container">
-      <div class="column-full">
+      <div class="column-full nav-row">
         <h1>Code Journal</h1>
+        <a id="entries-link" href="#existing-entries">Entries</a>
       </div>
     </div>
   </header>
@@ -50,7 +51,14 @@
         </div>
       </form>
     </div>
-    <div data-view="entries" class="hidden"></div>
+    <div data-view="entries" class="hidden">
+      <div class="entries-row">
+        <h2 class="column-half">Entries</h2>
+        <a id="new-entry-link" href="#new-entry">NEW</a>
+      </div>
+      <p class="" id="no-entry-text">No entries have been recorded.</p>
+      <ul></ul>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

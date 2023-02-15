@@ -5,7 +5,9 @@ html {
 header,
 h2,
 label,
-button {
+button,
+h3,
+a {
   font-family: "Proza Libre", sans-serif;
 }
 
@@ -14,6 +16,13 @@ header {
   color: white;
   font-size: 0.5rem;
   padding: 0.1rem;
+}
+
+#entries-link {
+  color: white;
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding-left: 1.5rem;
 }
 
 h2 {
@@ -31,14 +40,8 @@ label {
   border-radius: 0.25rem;
 }
 
-@media (min-width: 768px) {
-  #placeholder {
-    max-height: 100%;
-  }
-
-  .input-area:first-child {
-    margin-top: 0;
-  }
+img {
+  border-radius: 0.25rem;
 }
 
 form {
@@ -76,10 +79,6 @@ textarea:focus {
   outline-color: #562b81;
 }
 
-.save-button-row {
-  justify-content: end;
-}
-
 button {
   background-color: #562b81;
   color: white;
@@ -88,4 +87,46 @@ button {
   height: 2rem;
   width: 4rem;
   border-radius: 0.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin: 1.5rem 0;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+#no-entry-text {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+#new-entry-link {
+  background-color: #562b81;
+  color: white;
+  font-size: 0.9rem;
+  border-style: none;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  #placeholder {
+    max-height: 100%;
+  }
+
+  .input-area:first-child {
+    margin-top: 0;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
 }
