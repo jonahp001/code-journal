@@ -82,11 +82,6 @@ function toggleNoEntries() {
     $noEntryText.classList.add('hidden');
   }
 }
-// if ($noEntryText.getAttribute('class') === null) {
-//   $noEntryText.setAttribute('class', 'hidden');
-// } else if ($noEntryText.getAttribute('class') === 'hidden') {
-//   $noEntryText.setAttribute('class', '');
-// }
 
 function viewSwap(view) {
   var $dataViewEntryForm = document.querySelector('[data-view=entry-form]');
