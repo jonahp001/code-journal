@@ -18,7 +18,7 @@ header {
   padding: 0.1rem;
 }
 
-a {
+#entries-link {
   color: white;
   font-size: 0.85rem;
   text-decoration: none;
@@ -89,6 +89,10 @@ button {
   border-radius: 0.25rem;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 h3 {
   font-size: 1.35rem;
   margin: 1.5rem 0;
@@ -101,6 +105,16 @@ p {
 #no-entry-text {
   text-align: center;
   margin: 3rem 0;
+}
+
+#new-entry-link {
+  background-color: #562b81;
+  color: white;
+  font-size: 0.9rem;
+  border-style: none;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
 
 @media (min-width: 768px) {
