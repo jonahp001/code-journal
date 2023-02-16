@@ -7,6 +7,9 @@ var $titleBox = document.querySelector('#title-box');
 var $notesBox = document.querySelector('#notes-box');
 var $changeContentRow = document.querySelector('#change-content-row');
 var $deleteEntryButton = document.querySelector('#delete-entry-button');
+var $modalBg = document.querySelector('.modal-bg');
+var $cancelButton = document.querySelector('#cancel-button');
+var $confirmButton = document.querySelector('#confirm-button');
 
 $userPhotoUrl.addEventListener('input', function (event) {
   $placeHolderImg.setAttribute('src', event.target.value);
@@ -180,4 +183,16 @@ $ulElement.addEventListener('click', function (event) {
       }
     }
   }
+});
+
+$deleteEntryButton.addEventListener('click', function (event) {
+  $modalBg.setAttribute('class', 'modal-bg');
+});
+
+$cancelButton.addEventListener('click', function (event) {
+  $modalBg.setAttribute('class', 'modal-bg hidden');
+});
+
+$confirmButton.addEventListener('click', function (event) {
+
 });

@@ -48,6 +48,15 @@ form {
   width: 100%;
 }
 
+h3 {
+  font-size: 1.35rem;
+  margin: 1.5rem 0;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
 input,
 textarea {
   border: 0.08rem solid #b6b6b6;
@@ -80,7 +89,7 @@ textarea:focus {
 }
 
 #delete-entry-button {
-  color: red;
+  color: #dc2626;
   background-color: none;
   border: none;
   text-decoration: underline;
@@ -94,6 +103,50 @@ textarea:focus {
   height: 2rem;
   width: 4rem;
   border-radius: 0.25rem;
+}
+
+.modal-bg {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-window {
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.85rem 1rem;
+  text-align: center;
+  min-width: 315px;
+  border-radius: 0.25rem;
+}
+
+.modal-window > p {
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+#confirm-button {
+  border: none;
+  background-color: #dc2626;
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+#cancel-button {
+  border: none;
+  background-color: #b6b6b6;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.modal-window #confirm-button,
+.modal-window #cancel-button {
+  margin-top: 1rem;
 }
 
 button:hover {
@@ -113,15 +166,6 @@ i {
 
 i:hover {
   cursor: pointer;
-}
-
-h3 {
-  font-size: 1.35rem;
-  margin: 1.5rem 0;
-}
-
-p {
-  font-family: "Open Sans", sans-serif;
 }
 
 #no-entry-text {
