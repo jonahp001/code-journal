@@ -79,7 +79,14 @@ textarea:focus {
   outline-color: #562b81;
 }
 
-button {
+#delete-entry-button {
+  color: red;
+  background-color: none;
+  border: none;
+  text-decoration: underline;
+}
+
+#save-button {
   background-color: #562b81;
   color: white;
   font-size: 0.9rem;

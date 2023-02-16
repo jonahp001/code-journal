@@ -5,6 +5,8 @@ var $ulElement = document.querySelector('ul');
 var $editH2 = document.querySelector('h2');
 var $titleBox = document.querySelector('#title-box');
 var $notesBox = document.querySelector('#notes-box');
+var $changeContentRow = document.querySelector('#change-content-row');
+var $deleteEntryButton = document.querySelector('#delete-entry-button');
 
 $userPhotoUrl.addEventListener('input', function (event) {
   $placeHolderImg.setAttribute('src', event.target.value);
@@ -152,6 +154,8 @@ $newEntryAnchor.addEventListener('click', function (event) {
     $titleBox.value = null;
     $notesBox.value = null;
     $userPhotoUrl.value = null;
+    $changeContentRow.setAttribute('class', 'row column-full align-right');
+    $deleteEntryButton.setAttribute('class', 'hidden');
   }
 });
 
@@ -170,6 +174,9 @@ $ulElement.addEventListener('click', function (event) {
         $notesBox.value = data.editing.notesKey;
 
         $editH2.textContent = 'Edit Entry';
+
+        $changeContentRow.setAttribute('class', 'row column-full space-between');
+        $deleteEntryButton.setAttribute('class', '');
       }
     }
   }

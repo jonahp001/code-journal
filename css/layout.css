@@ -18,8 +18,12 @@
   align-items: center;
 }
 
-.save-button-row {
-  justify-content: end;
+.space-between {
+  justify-content: space-between;
+}
+
+.align-right {
+  justify-content: flex-end;
 }
 
 .entries-row {
