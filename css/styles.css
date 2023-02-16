@@ -93,6 +93,21 @@ button:hover {
   cursor: pointer;
 }
 
+.edit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+i {
+  color: #562b81;
+  font-size: 1.5rem;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
 h3 {
   font-size: 1.35rem;
   margin: 1.5rem 0;
@@ -128,5 +143,6 @@ p {
 
   h3 {
     margin-top: 0;
+    margin-bottom: 0;
   }
 }
