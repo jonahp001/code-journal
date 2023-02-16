@@ -120,11 +120,6 @@ function toggleNoEntries() {
   } else {
     $noEntryText.classList.remove('hidden');
   }
-  // if ($noEntryText.classList.contains('hidden')) {
-  //   $noEntryText.classList.remove('hidden');
-  // } else {
-  //   $noEntryText.classList.add('hidden');
-  // }
 }
 
 function viewSwap(view) {
