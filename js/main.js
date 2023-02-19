@@ -207,6 +207,7 @@ $confirmButton.addEventListener('click', function (event) {
   for (var j = 0; j < $liInUl.length; j++) {
     if (parseInt($liInUl[j].getAttribute('data-entry-id')) === data.editing.entryID) {
       $liInUl[j].remove();
+      data.nextEntryId--;
     }
   }
 
