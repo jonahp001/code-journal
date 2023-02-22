@@ -5,6 +5,11 @@ var $ulElement = document.querySelector('ul');
 var $editH2 = document.querySelector('h2');
 var $titleBox = document.querySelector('#title-box');
 var $notesBox = document.querySelector('#notes-box');
+var $changeContentRow = document.querySelector('#change-content-row');
+var $deleteEntryButton = document.querySelector('#delete-entry-button');
+var $modalBg = document.querySelector('.modal-bg');
+var $cancelButton = document.querySelector('#cancel-button');
+var $confirmButton = document.querySelector('#confirm-button');
 
 $userPhotoUrl.addEventListener('input', function (event) {
   $placeHolderImg.setAttribute('src', event.target.value);
@@ -107,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $ulElement.appendChild(renderEntry(data.entries[i]));
   }
   viewSwap(data['data.view']);
+  data.editing = null;
 
   if (data.entries.length > 0) {
     toggleNoEntries();
@@ -140,6 +146,7 @@ var $entriesAnchor = document.querySelector('#entries-link');
 $entriesAnchor.addEventListener('click', function (event) {
   if (event.target.getAttribute('href')) {
     viewSwap('entries');
+    data.editing = null;
   }
 });
 
@@ -152,6 +159,9 @@ $newEntryAnchor.addEventListener('click', function (event) {
     $titleBox.value = null;
     $notesBox.value = null;
     $userPhotoUrl.value = null;
+    data.editing = null;
+    $changeContentRow.setAttribute('class', 'row column-full align-right');
+    $deleteEntryButton.setAttribute('class', 'hidden');
   }
 });
 
@@ -170,7 +180,40 @@ $ulElement.addEventListener('click', function (event) {
         $notesBox.value = data.editing.notesKey;
 
         $editH2.textContent = 'Edit Entry';
+
+        $changeContentRow.setAttribute('class', 'row column-full space-between');
+        $deleteEntryButton.setAttribute('class', '');
       }
     }
   }
+});
+
+$deleteEntryButton.addEventListener('click', function (event) {
+  $modalBg.setAttribute('class', 'modal-bg');
+});
+
+$cancelButton.addEventListener('click', function (event) {
+  $modalBg.setAttribute('class', 'modal-bg hidden');
+});
+
+$confirmButton.addEventListener('click', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryID === data.editing.entryID) {
+      var dataobjIndex = data.entries.indexOf(data.entries[i]);
+      data.entries.splice(dataobjIndex, 1);
+    }
+  }
+  var $liInUl = $ulElement.querySelectorAll('li');
+  for (var j = 0; j < $liInUl.length; j++) {
+    if (parseInt($liInUl[j].getAttribute('data-entry-id')) === data.editing.entryID) {
+      $liInUl[j].remove();
+      data.nextEntryId--;
+    }
+  }
+
+  if (data.entries.length === 0) {
+    toggleNoEntries();
+  }
+  $modalBg.setAttribute('class', 'modal-bg hidden');
+  viewSwap('entries');
 });
